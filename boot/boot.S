@@ -27,7 +27,7 @@ start:
   #   1MB wrap around to zero by default.  This code undoes this.
 seta20.1:
   inb     $0x64,%al               # Wait for not busy
-  testb   $0x2,%al
+  testb   $0x2,%al                # test -- logical compare AND byte
   jnz     seta20.1
 
   movb    $0xd1,%al               # 0xd1 -> port 0x64
